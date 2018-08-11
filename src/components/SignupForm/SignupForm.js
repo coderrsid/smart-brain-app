@@ -1,5 +1,5 @@
 import React from 'react';
-
+import swal from 'sweetalert';
 
 class SignupForm extends React.Component {
 
@@ -40,7 +40,7 @@ class SignupForm extends React.Component {
 					this.props.loadUser(user);	
 					this.props.onRouteChange('home');
 				}
-			})
+			}).then(swal("Good job!", "You're registered now !", "success"))
 	}
 			
 	render() {

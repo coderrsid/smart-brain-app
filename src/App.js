@@ -8,6 +8,8 @@ import SigninForm from './components/SigninForm/SigninForm';
 import SignupForm from './components/SignupForm/SignupForm';
 import ImageRecognition from './components/ImageRecognition/ImageRecognition';
 import Particles from 'react-particles-js';
+import swal from 'sweetalert';
+
 
 const particlesProps = {
   particles: {
@@ -45,16 +47,16 @@ class App extends Component {
   }
 
   loadUser = (data) => {
-    this.setState({user: 
-      {
-        id: data.id,
-        name: data.name,
-        email: data.email,
-        password : data.password,
-        entries: data.entries,
-        joined: new Date()
-      }
-    });
+      this.setState({user: 
+        {
+          id: data.id,
+          name: data.name,
+          email: data.email,
+          password : data.password,
+          entries: data.entries,
+          joined: new Date()
+        }
+      });
   }
 
   calculateFaceLocation = (data) => {
@@ -99,12 +101,31 @@ class App extends Component {
           })
         })
         .then(response => response.json())
-        .then(count => { Object.assign(this.state.user,{entries: count})}) 
+        .then(count => {
+           Object.assign(this.state.user,{entries: count})
+           swal("Congratulations !!", "Your rank has been increased", "success")
+         }) 
         .catch(err => console.log(err))
       }
       this.displayFaceBox(this.calculateFaceLocation(response));
     }).catch(err => console.log(err));   
    } 
+
+  onSignOut = (route) => {
+    swal({
+      title: "Are you sure ?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        this.onRouteChange(route)
+      } 
+      else {
+      }
+    })
+  }
 
   onRouteChange = (route) => {
     if(route === 'signout') {
@@ -121,7 +142,7 @@ class App extends Component {
     return (
       <div className='App'>
         <Particles className="particles" params={particlesProps}/>        
-        <Navigation isSignedin={isSignedin} onRouteChange={this.onRouteChange}/>
+        <Navigation isSignedin={isSignedin} onRouteChange={this.onRouteChange} onSignOut={this.onSignOut}/>
         { route === 'home'
           ? <div>
               <Logo />

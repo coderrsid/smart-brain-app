@@ -1,5 +1,5 @@
-import React from 'react'
-
+import React from 'react';
+import swal from 'sweetalert';
 
 class SigninForm extends React.Component { 
 	constructor(props) {
@@ -15,7 +15,17 @@ class SigninForm extends React.Component {
 	}
 
 	onPasswordChange = (event) => {
-		this.setState({signInPassword: event.target.value})
+		if(event.length<8) {
+				swal({
+					title: "Short Password",
+					text: "Password length should be more than 8 characters",
+					icon: "warning",
+					buttons: true,
+					dangerMode: true,
+				})
+		} else {
+			this.setState({signInPassword: event.target.value})
+		}
 	}
 
 	onSubmitSignIn = () => { 
@@ -32,6 +42,15 @@ class SigninForm extends React.Component {
 				if(user.id) {
 					this.props.loadUser(user);	
 					this.props.onRouteChange('home');
+					swal("Welcome to Magical World", "", "success")
+				} else {
+					swal({
+					title: "Wrong Credentials",
+					text: "The email and password combination you entered is incorrect",
+					icon: "warning",
+					buttons: true,
+					dangerMode: true,
+				})
 				}
 			})
 	}
