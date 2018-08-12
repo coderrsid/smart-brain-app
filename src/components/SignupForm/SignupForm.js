@@ -1,5 +1,7 @@
 import React from 'react';
 import swal from 'sweetalert';
+import Form from 'react-validation/build/form';
+import Input from 'react-validation/build/input';
 
 class SignupForm extends React.Component {
 
