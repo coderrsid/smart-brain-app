@@ -1,14 +1,14 @@
 <h1 align="center"> Smart-Brain </h1> <br>
 <p align="center">
-	<a href="https://gitpoint.co/">
-		<img alt="GitPoint" title="GitPoint" src="https://imgur.com/a/fw228aS" height= "450" width="450">
+	<a href="http://tinypic.com?ref=2nhnurq" target="_blank">
+		<img src="http://i63.tinypic.com/2nhnurq.png" border="0" alt="Smart-Brain">
 	</a>
 </p>
 
 <table>
 	<tr>
 		<td>
-			Smart-Brain using Clarifai API to detect face in an image. It helps to detect face in a picture provided by user through URL of image. User's rank gets upgraded everytime user detects image in a picture.
+			Smart-Brain uses Clarifai API to detect face in an image. It helps to detect face in a picture provided by user through URL of image. User's rank gets upgraded everytime user detects image in a picture.
 		</td>
 	</tr>
 </table>
