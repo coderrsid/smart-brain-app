@@ -24,13 +24,13 @@ Here is a working live demo :  http://smart-brain-mainapp.herokuapp.com/
 Currently it is working to detect only one face in an image.
 
 ### Register
-![](https://github.com/coderrsid/smart-brain-app/tree/master/src/images/register.png)
+<img src="https://github.com/coderrsid/smart-brain-app/tree/master/src/images/register.png" border="0" alt="Smart-Brain">
 
 ### Sign In 
-![](https://github.com/coderrsid/smart-brain-app/tree/master/src/images/signin.png)
+<img src="https://github.com/coderrsid/smart-brain-app/tree/master/src/images/signin.png" border="0" alt="Smart-Brain">
 
 ### Face Detection Example
-![](https://github.com/coderrsid/smart-brain-app/tree/master/src/images/fdexample.png)
+<img src="https://github.com/coderrsid/smart-brain-app/tree/master/src/images/fdexample.png" border="0" alt="Smart-Brain">
 
 ## [Usage](https://github.com/coderrsid/smart-brain-app/) 
 
