@@ -1,11 +1,16 @@
-# ![Smart-Brain](https://github.com/coderrsid/smart-brain-app/tree/master/src/components/Logo/brain.png)
-# Smart-Brain
+<h1 align="center"> Smart-Brain </h1> <br>
+<p align="center">
+	<a href="https://gitpoint.co/">
+		<img alt="GitPoint" title="GitPoint" src="https://imgur.com/a/fw228aS" height= "450" width="450">
+	</a>
+</p>
+
 <table>
-<tr>
-<td>
-  Smart-Brain using Clarifai API to detect face in an image. It helps to detect face in a picture provided by user through URL of image. User's rank gets upgraded everytime user detects image in a picture.
-</td>
-</tr>
+	<tr>
+		<td>
+			Smart-Brain using Clarifai API to detect face in an image. It helps to detect face in a picture provided by user through URL of image. User's rank gets upgraded everytime user detects image in a picture.
+		</td>
+	</tr>
 </table>
 
 
@@ -65,5 +70,5 @@ If you'd like to request a new function, feel free to do so by opening an issue 
 
 ## Developer
 
-[![Siddhant Sehgal]](https://github.com/coderrsid)
+[Siddhant Sehgal](https://github.com/coderrsid)
 
