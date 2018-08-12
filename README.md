@@ -1,9 +1,9 @@
-# ![WebApp](https://github.com/coderrsid/smart-brain-app/tree/master/src/components/Logo/brain.PNG)
-# WebApp
+# ![Smart-Brain](https://github.com/coderrsid/smart-brain-app/tree/master/src/components/Logo/brain.png)
+# Smart-Brain
 <table>
 <tr>
 <td>
-  A webapp using Clarifai API to detect face in an image. It helps to detect face in a picture provided by user through URL of image. User's rank gets upgraded everytime user detects image in a picture.
+  Smart-Brain using Clarifai API to detect face in an image. It helps to detect face in a picture provided by user through URL of image. User's rank gets upgraded everytime user detects image in a picture.
 </td>
 </tr>
 </table>
@@ -19,13 +19,13 @@ Here is a working live demo :  http://smart-brain-mainapp.herokuapp.com/
 Currently it is working to detect only one face in an image.
 
 ### Register
-![](https://github.com/coderrsid/smart-brain-app/tree/master/src/images/register.PNG)
+![](https://github.com/coderrsid/smart-brain-app/tree/master/src/images/register.png)
 
 ### Sign In 
-![](https://github.com/coderrsid/smart-brain-app/tree/master/src/images/signin.PNG)
+![](https://github.com/coderrsid/smart-brain-app/tree/master/src/images/signin.png)
 
 ### Face Detection Example
-![](https://github.com/coderrsid/smart-brain-app/tree/master/src/images/fdexample.PNG)
+![](https://github.com/coderrsid/smart-brain-app/tree/master/src/images/fdexample.png)
 
 ## [Usage](https://github.com/coderrsid/smart-brain-app/) 
 
