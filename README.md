@@ -22,16 +22,16 @@ Here is a working live demo :  http://smart-brain-mainapp.herokuapp.com/
 
 ### Home Page (after login)
 <h2>**Currently it is working to detect only one face in an image.**</h2>
-<img src="https://github.com/coderrsid/smart-brain-app/tree/master/src/images/homepage.PNG" alt="Smart-Brain">
+<img src="https://github.com/coderrsid/smart-brain-app/tree/master/src/images/homepage.PNG" width="640" height="320" border="0" alt="Smart-Brain">
 
 ### Register
-<img src="https://github.com/coderrsid/smart-brain-app/tree/master/src/images/register.PNG" alt="Smart-Brain">
+<img src="https://github.com/coderrsid/smart-brain-app/tree/master/src/images/register.PNG" width="640" height="320" border="0" alt="Smart-Brain">
 
 ### Sign In 
-<img src="https://github.com/coderrsid/smart-brain-app/tree/master/src/images/signin.PNG" alt="Smart-Brain">
+<img src="https://github.com/coderrsid/smart-brain-app/tree/master/src/images/signin.PNG" width="640" height="320" border="0" alt="Smart-Brain">
 
 ### Face Detection Example
-<img src="https://github.com/coderrsid/smart-brain-app/tree/master/src/images/fdexample.PNG" alt="Smart-Brain">
+<img src="https://github.com/coderrsid/smart-brain-app/tree/master/src/images/fdexample.PNG" width="640" height="320" border="0" alt="Smart-Brain">
 
 ## [Usage](https://github.com/coderrsid/smart-brain-app/) 
 
