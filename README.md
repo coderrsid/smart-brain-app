@@ -21,16 +21,17 @@ Here is a working live demo :  http://smart-brain-mainapp.herokuapp.com/
 ## Site
 
 ### Home Page (after login)
-![alt text](http://tinypic.com/r/303l1xi/9)
+<h2>**Currently it is working to detect only one face in an image.**</h2>
+<img src="http://tinypic.com/r/303l1xi/9" width="320" height="640" border="0" alt="Smart-Brain">
 
 ### Register
-![alt text](http://tinypic.com/r/107jkoj/9)
+<img src="http://tinypic.com/r/107jkoj/9" width="320" height="640" border="0" alt="Smart-Brain">
 
 ### Sign In 
-![alt text](http://tinypic.com/r/akiquh/9)
+<img src="http://tinypic.com/r/akiquh/9" width="320" height="640" border="0" alt="Smart-Brain">
 
 ### Face Detection Example
-![alt text](http://tinypic.com/r/2je1mhc/9)
+<img src="http://tinypic.com/r/2je1mhc/9" width="320" height="640" border="0" alt="Smart-Brain">
 
 ## [Usage](https://github.com/coderrsid/smart-brain-app/) 
 
