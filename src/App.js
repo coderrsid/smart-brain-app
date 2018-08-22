@@ -14,7 +14,7 @@ import swal from 'sweetalert';
 const particlesProps = {
   particles: {
     number: {
-      value: 100,
+      value: 60,
       density: {
         enabled: true,
         value_area: 800

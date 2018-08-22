@@ -22,16 +22,16 @@ Here is a working live demo :  http://smart-brain-mainapp.herokuapp.com/
 
 ### Home Page (after login)
 <h2>**Currently it is working to detect only one face in an image.**</h2>
-<img src="./images/homepage.PNG" width="50%" height="50%" border="0" alt="Smart-Brain">
+<img src="https://ibb.co/nET7xe" width="50%" height="50%" border="0" alt="Smart-Brain">
 
 ### Register
-<img src="./images/register.PNG" width="50%" height="50%" border="0" alt="Smart-Brain">
+<img src="https://ibb.co/hAg5iK" width="50%" height="50%" border="0" alt="Smart-Brain">
 
 ### Sign In 
-<img src="./images/signin.PNG" width="50%" height="50%" border="0" alt="Smart-Brain">
+<img src="https://ibb.co/k6Owqz" width="50%" height="50%" border="0" alt="Smart-Brain">
 
 ### Face Detection Example
-<img src="./images/fdexample.PNG" width="50%" height="50%" border="0" alt="Smart-Brain">
+<img src="https://ibb.co/iPkWOK" width="50%" height="50%" border="0" alt="Smart-Brain">
 
 ## [Usage](https://github.com/coderrsid/smart-brain-app/) 
 
@@ -68,6 +68,11 @@ If you'd like to request a new function, feel free to do so by opening an issue 
 - Add validations to Register Form
 - Add home page to app
 - Add multiple face detection
+
+## Sources-Used
+
+ Clarifai Face Detection API
+ Sweet-Alert
 
 ## Developer
 

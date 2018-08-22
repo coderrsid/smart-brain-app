@@ -55,8 +55,7 @@ class SigninForm extends React.Component {
 			})
 	}
 		
-	render() {
-	const { onRouteChange } = this.props;	
+	render() {	
 	return (
 		<article className="br3 ba dark-gray b--black-10 mv4 w-100 w-150-m w-25-l mw6 center shadow-5">
 		<main className="pa4 black-80">
@@ -91,9 +90,6 @@ class SigninForm extends React.Component {
 							value="Sign in"
 							onClick= {this.onSubmitSignIn} 
 						/>
-					</div>
-					<div className="lh-copy mt3">
-						<a onClick= {() => onRouteChange('signup')} href="#0" className="f4 link dim black db">Sign up</a>
 					</div>
 			</div>
 		</main>

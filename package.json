@@ -5,7 +5,6 @@
   "dependencies": {
     "clarifai": "^2.8.0",
     "react": "^16.4.1",
-    "react-bootstrap-sweetalert": "^4.4.1",
     "react-dom": "^16.4.1",
     "react-particles-js": "^2.2.0",
     "react-scripts": "1.1.4",
