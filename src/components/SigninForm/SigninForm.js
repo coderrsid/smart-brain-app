@@ -15,17 +15,7 @@ class SigninForm extends React.Component {
 	}
 
 	onPasswordChange = (event) => {
-		if(event.length<8) {
-				swal({
-					title: "Short Password",
-					text: "Password length should be more than 8 characters",
-					icon: "warning",
-					buttons: true,
-					dangerMode: true,
-				})
-		} else {
-			this.setState({signInPassword: event.target.value})
-		}
+		this.setState({signInPassword: event.target.value})
 	}
 
 	onSubmitSignIn = () => { 

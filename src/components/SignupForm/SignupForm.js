@@ -9,9 +9,9 @@ class Signup extends React.Component{
 			password: '',
 			name: '',
 			verifypassword: '',
-			nameError: false,
-			emailError: false,
-			passwordError: false,
+			nameError: true,
+			emailError: true,
+			passwordError: true,
 			isDisabled:true
 		}                                                                                                 
 		this.submitForm = this.submitForm.bind(this);
@@ -28,8 +28,7 @@ class Signup extends React.Component{
 			
 		}else{
 			this.setState({
-				emailError:true,
-				
+				emailError:true,	
 			});
 			
 		}
@@ -45,7 +44,7 @@ class Signup extends React.Component{
 		});
 
 		if(event.target.name==='name'){
-			if(event.target.value==='' || event.target.value===null ){
+			if(event.target.value==='' || event.target.value===null){
 				this.setState({
 					nameError:true,
 					
@@ -80,8 +79,7 @@ class Signup extends React.Component{
 			}
 			console.log(this.passwordError);
 		}
-		if(this.state.nameError===false && this.state.lastnameError===false && 
-			this.state.emailError===false && this.state.passwordError===false){
+		if(this.state.nameError===false && this.state.emailError===false && this.state.passwordError===false){
 			this.setState({
 				isDisabled:false
 			})
@@ -126,7 +124,7 @@ return(
             		 		onChange={this.handleChange} 
             		 		title="It should be more than 5 characters"
             		 	/>
-                  		{this.state.nameError ? <small style={{align: "left",color: "red"}}>Please Enter some value!</small> : ''} 
+                  		{this.state.nameError ? <small style={{align: "left",color: "black"}}>It should be more than 5 characters</small> : ''} 
                 	</div>
             		<div className="mt3">
                   		<label className="tl db fw6 lh-copy f6" htmlFor="email">Email</label>
@@ -138,7 +136,7 @@ return(
                   			onChange={this.handleChange} 
                   			title="It should be like 'abc@example.com'"
                   		/>
-                  		{this.state.emailError ? <small style={{align: "left",color: "red"}}>Please Enter valid email address!</small> : ''}
+                  		{this.state.emailError ? <small style={{align: "left",color: "black"}}>Please Enter valid email address!</small> : ''}
                 	</div>
                     <div className="mt3">         
                   		<label className="tl db fw6 lh-copy f6" htmlFor="password">Password</label>
@@ -150,7 +148,7 @@ return(
                   			onChange={this.handleChange} 
                   			title="It should be more than 5 characters"
                   		/>
-                  		{this.state.passwordError ? <small style={{align: "left", color: "red"}}>Please enter some value!</small> : ''}
+                  		{this.state.passwordError ? <small style={{align: "left", color: "black"}}>It should be more than 5 characters</small> : ''}
                		</div>
                		</fieldset> 
                		<div className="">                
