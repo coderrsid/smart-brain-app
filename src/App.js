@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import LandingPage from './components/LandingPage/LandingPage';
 import Navigation from './components/Navigation/Navigation';
 import Logo from './components/Logo/Logo';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
@@ -27,7 +28,7 @@ const initState = {
   input: '',
   imageUrl: '',
   box: {},
-  route: 'signin',
+  route: '',
   isSignedin: false,
   user : {
     id: '',
@@ -133,18 +134,24 @@ class App extends Component {
     }
     else if(route === 'home') {
       this.setState({isSignedin : true})
-    } 
-    this.setState({route : route})
+      this.setState({route: 'home'})
+    }
+    else if(route === 'signup') {
+      this.setState({route : 'signup'})
+    }
+    else {
+      this.setState({route : 'signin'})  
+    }
   }
 
   render() {
-    const {isSignedin, input, route, box } = this.state;
+    const {isSignedin, input, box } = this.state;
     return (
       <div className='App'>
-        <Particles className="particles" params={particlesProps}/>        
-        <Navigation isSignedin={isSignedin} onRouteChange={this.onRouteChange} onSignOut={this.onSignOut}/>
-        { route === 'home'
+        <Particles className="particles" params={particlesProps}/>       
+          { this.state.route === 'home'
           ? <div>
+              <Navigation isSignedin={isSignedin} onRouteChange={this.onRouteChange} onSignOut={this.onSignOut}/>
               <Logo />
               <Rank name={this.state.user.name} entries={this.state.user.entries}/>
               <ImageLinkForm 
@@ -153,10 +160,14 @@ class App extends Component {
               />
               <ImageRecognition box={box} imageUrl={input} />
             </div> 
-            : ( route === 'signin'
-              ?  <SigninForm loadUser={this.loadUser} onRouteChange={this.onRouteChange} /> 
-              :  <SignupForm loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
-              )         
+            : ( this.state.route === 'signin'
+              ?  <div><Navigation isSignedin={isSignedin} onRouteChange={this.onRouteChange} onSignOut={this.onSignOut}/><SigninForm loadUser={this.loadUser} onRouteChange={this.onRouteChange} /></div> 
+              :  ( this.state.route === 'signup'
+                  ? <div><Navigation isSignedin={isSignedin} onRouteChange={this.onRouteChange} onSignOut={this.onSignOut}/><SignupForm loadUser={this.loadUser} onRouteChange={this.onRouteChange}/></div> 
+                  : <LandingPage onRouteChange={this.onRouteChange}/> 
+
+                 )
+              )            
         }  
       </div>
     );

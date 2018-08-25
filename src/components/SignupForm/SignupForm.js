@@ -32,7 +32,6 @@ class Signup extends React.Component{
 			});
 			
 		}
-		console.log(this.emailError);
 	}
 	handleChange(event){
 		const tar = event.target;
@@ -56,7 +55,6 @@ class Signup extends React.Component{
 				});
 				
 			}
-			console.log(this.nameError);
 		}
 
 		if(event.target.name==='email'){
@@ -68,7 +66,6 @@ class Signup extends React.Component{
 					passwordError:true,
 					
 				});
-				console.log("Password done");
 			}else {
 				this.setState({
 					passwordError:false,
@@ -77,7 +74,6 @@ class Signup extends React.Component{
 				});
 				
 			}
-			console.log(this.passwordError);
 		}
 		if(this.state.nameError===false && this.state.emailError===false && this.state.passwordError===false){
 			this.setState({

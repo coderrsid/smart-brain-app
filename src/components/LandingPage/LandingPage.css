@@ -1,0 +1,18 @@
+.Tilt { 
+	background : linear-gradient(to right, rgb(32, 209, 223), rgb(202, 210, 45));
+}
+
+.h1 {
+	font-family: 'Poiret One', cursive;
+	font-size: 5em;
+}
+.p {
+	font-family: 'Lorel', cursive;
+	padding-top: 10px;
+	letter-spacing: 3px;
+}
+
+.flex {
+	display: flex;
+	flex-direction: column;
+}
