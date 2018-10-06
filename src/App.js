@@ -1,174 +1,150 @@
-import React, { Component } from 'react';
-import './App.css';
-import LandingPage from './components/LandingPage/LandingPage';
-import Navigation from './components/Navigation/Navigation';
-import Logo from './components/Logo/Logo';
-import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
-import Rank from './components/Rank/Rank';
-import SigninForm from './components/SigninForm/SigninForm';
-import SignupForm from './components/SignupForm/SignupForm';
-import ImageRecognition from './components/ImageRecognition/ImageRecognition';
-import Particles from 'react-particles-js';
-import swal from 'sweetalert';
+import React, { Component } from "react";
+import Particles from "react-particles-js";
+import FaceRecognition from "./components/FaceRecognition/FaceRecognition";
+import Navigation from "./components/Navigation/Navigation";
+import Signin from "./components/Signin/Signin";
+import Register from "./components/Register/Register";
+import Logo from "./components/Logo/Logo";
+import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm";
+import Rank from "./components/Rank/Rank";
+import "./App.css";
 
-
-const particlesProps = {
+const particlesOptions = {
   particles: {
     number: {
-      value: 60,
+      value: 30,
       density: {
-        enabled: true,
+        enable: true,
         value_area: 800
       }
     }
   }
-}
+};
 
-const initState = {
-  input: '',
-  imageUrl: '',
+const initialState = {
+  input: "",
+  imageUrl: "",
   box: {},
-  route: '',
-  isSignedin: false,
-  user : {
-    id: '',
-    name: '',
-    email: '', 
-    password : '',
+  route: "signin",
+  isSignedIn: false,
+  user: {
+    id: "",
+    name: "",
+    email: "",
     entries: 0,
-    joined: ''
+    joined: ""
   }
-}      
+};
 
 class App extends Component {
-
   constructor() {
-    super()
-    this.state = initState;
+    super();
+    this.state = initialState;
   }
 
-  loadUser = (data) => {
-      this.setState({user: 
-        {
-          id: data.id,
-          name: data.name,
-          email: data.email,
-          password : data.password,
-          entries: data.entries,
-          joined: new Date()
-        }
-      });
-  }
+  loadUser = data => {
+    this.setState({
+      user: {
+        id: data.id,
+        name: data.name,
+        email: data.email,
+        entries: data.entries,
+        joined: data.joined
+      }
+    });
+  };
 
-  calculateFaceLocation = (data) => {
-    const faceCoordinates = data.outputs[0].data.regions[0].region_info.bounding_box;
-    const image = document.getElementById('inputimage');
-    const height = Number(image.height);
+  calculateFaceLocation = data => {
+    const clarifaiFace =
+      data.outputs[0].data.regions[0].region_info.bounding_box;
+    const image = document.getElementById("inputimage");
     const width = Number(image.width);
+    const height = Number(image.height);
     return {
-      leftCol: faceCoordinates.left_col * width,
-      topRow: faceCoordinates.top_row * height,
-      rightCol: width-(faceCoordinates.right_col * width),
-      bottomRow: height-(faceCoordinates.bottom_row * height)
-   }
-  } 
+      leftCol: clarifaiFace.left_col * width,
+      topRow: clarifaiFace.top_row * height,
+      rightCol: width - clarifaiFace.right_col * width,
+      bottomRow: height - clarifaiFace.bottom_row * height
+    };
+  };
 
-  displayFaceBox = (box) => {
-    this.setState({box:box});
-  }
+  displayFaceBox = box => {
+    this.setState({ box: box });
+  };
 
-  onInputChange = (event) => {
-    this.setState({input: event.target.value});
-  }
+  onInputChange = event => {
+    this.setState({ input: event.target.value });
+  };
 
-  onPictureSubmit = () => {
-    this.setState({imageUrl: this.state.input});
-
-    fetch('https://blooming-coast-99463.herokuapp.com/imageurl', {
-      method: 'post',
-      headers: {'Content-Type': 'application/json'},
+  onButtonSubmit = () => {
+    this.setState({ imageUrl: this.state.input });
+    fetch("https://blooming-coast-99463.herokuapp.com/imageurl", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         input: this.state.input
       })
     })
-    .then(response => response.json())
-    .then(response => {
-      if(response) {
-        fetch('https://blooming-coast-99463.herokuapp.com/image', {
-          method: 'put',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({
-            id: this.state.user.id
+      .then(response => response.json())
+      .then(response => {
+        if (response) {
+          fetch("https://blooming-coast-99463.herokuapp.com/image", {
+            method: "put",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              id: this.state.user.id
+            })
           })
-        })
-        .then(response => response.json())
-        .then(count => {
-           Object.assign(this.state.user,{entries: count})
-           swal("Congratulations !!", "Your rank has been increased", "success")
-         }) 
-        .catch(err => console.log(err))
-      }
-      this.displayFaceBox(this.calculateFaceLocation(response));
-    }).catch(err => console.log(err));   
-   } 
+            .then(response => response.json())
+            .then(count => {
+              this.setState(Object.assign(this.state.user, { entries: count }));
+            })
+            .catch(console.log);
+        }
+        this.displayFaceBox(this.calculateFaceLocation(response));
+      })
+      .catch(err => console.log(err));
+  };
 
-  onSignOut = (route) => {
-    swal({
-      title: "Are you sure ?",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    })
-    .then((willDelete) => {
-      if (willDelete) {
-        this.onRouteChange(route)
-      } 
-      else {
-      }
-    })
-  }
-
-  onRouteChange = (route) => {
-    if(route === 'signout') {
-      this.setState(initState)
+  onRouteChange = route => {
+    if (route === "signout") {
+      this.setState(initialState);
+    } else if (route === "home") {
+      this.setState({ isSignedIn: true });
     }
-    else if(route === 'home') {
-      this.setState({isSignedin : true})
-      this.setState({route: 'home'})
-    }
-    else if(route === 'signup') {
-      this.setState({route : 'signup'})
-    }
-    else {
-      this.setState({route : 'signin'})  
-    }
-  }
+    this.setState({ route: route });
+  };
 
   render() {
-    const {isSignedin, input, box } = this.state;
+    const { isSignedIn, imageUrl, route, box } = this.state;
     return (
-      <div className='App'>
-        <Particles className="particles" params={particlesProps}/>       
-          { this.state.route === 'home'
-          ? <div>
-              <Navigation isSignedin={isSignedin} onRouteChange={this.onRouteChange} onSignOut={this.onSignOut}/>
-              <Logo />
-              <Rank name={this.state.user.name} entries={this.state.user.entries}/>
-              <ImageLinkForm 
-                onInputChange={this.onInputChange} 
-                onPictureSubmit={this.onPictureSubmit} 
-              />
-              <ImageRecognition box={box} imageUrl={input} />
-            </div> 
-            : ( this.state.route === 'signin'
-              ?  <div><Navigation isSignedin={isSignedin} onRouteChange={this.onRouteChange} onSignOut={this.onSignOut}/><SigninForm loadUser={this.loadUser} onRouteChange={this.onRouteChange} /></div> 
-              :  ( this.state.route === 'signup'
-                  ? <div><Navigation isSignedin={isSignedin} onRouteChange={this.onRouteChange} onSignOut={this.onSignOut}/><SignupForm loadUser={this.loadUser} onRouteChange={this.onRouteChange}/></div> 
-                  : <LandingPage onRouteChange={this.onRouteChange}/> 
-
-                 )
-              )            
-        }  
+      <div className="App">
+        <Particles className="particles" params={particlesOptions} />
+        <Navigation
+          isSignedIn={isSignedIn}
+          onRouteChange={this.onRouteChange}
+        />
+        {route === "home" ? (
+          <div>
+            <Logo />
+            <Rank
+              name={this.state.user.name}
+              entries={this.state.user.entries}
+            />
+            <ImageLinkForm
+              onInputChange={this.onInputChange}
+              onButtonSubmit={this.onButtonSubmit}
+            />
+            <FaceRecognition box={box} imageUrl={imageUrl} />
+          </div>
+        ) : route === "signin" ? (
+          <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
+        ) : (
+          <Register
+            loadUser={this.loadUser}
+            onRouteChange={this.onRouteChange}
+          />
+        )}
       </div>
     );
   }
