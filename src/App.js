@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import Particles from "react-particles-js";
-import FaceRecognition from "./components/FaceRecognition/FaceRecognition";
+import ImageRecognition from "./components/ImageRecognition/ImageRecognition";
 import Navigation from "./components/Navigation/Navigation";
-import Signin from "./components/Signin/Signin";
-import Register from "./components/Register/Register";
+import SigninForm from "./components/SigninForm/SigninForm";
+import SignupForm from "./components/SignupForm/SignupForm";
 import Logo from "./components/Logo/Logo";
 import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm";
 import Rank from "./components/Rank/Rank";
@@ -135,12 +135,15 @@ class App extends Component {
               onInputChange={this.onInputChange}
               onButtonSubmit={this.onButtonSubmit}
             />
-            <FaceRecognition box={box} imageUrl={imageUrl} />
+            <ImageRecognition box={box} imageUrl={imageUrl} />
           </div>
         ) : route === "signin" ? (
-          <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
+          <SigninForm
+            loadUser={this.loadUser}
+            onRouteChange={this.onRouteChange}
+          />
         ) : (
-          <Register
+          <SignupForm
             loadUser={this.loadUser}
             onRouteChange={this.onRouteChange}
           />
