@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import Particles from "react-particles-js";
-import ImageRecognition from "./components/ImageRecognition/ImageRecognition";
+import FaceRecognition from "./components/FaceRecognition/FaceRecognition";
 import Navigation from "./components/Navigation/Navigation";
-import SigninForm from "./components/SigninForm/SigninForm";
-import SignupForm from "./components/SignupForm/SignupForm";
+import Signin from "./components/Signin/Signin";
+import Register from "./components/Register/Register";
 import Logo from "./components/Logo/Logo";
 import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm";
 import Rank from "./components/Rank/Rank";
@@ -12,9 +12,9 @@ import "./App.css";
 const particlesOptions = {
   particles: {
     number: {
-      value: 30,
+      value: 60,
       density: {
-        enable: true,
+        enabled: true,
         value_area: 800
       }
     }
@@ -78,7 +78,7 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({ imageUrl: this.state.input });
-    fetch("https://blooming-coast-99463.herokuapp.com/imageurl", {
+    fetch("https://smart-brain-mainapp.herokuapp.com/imageurl", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -88,7 +88,7 @@ class App extends Component {
       .then(response => response.json())
       .then(response => {
         if (response) {
-          fetch("https://blooming-coast-99463.herokuapp.com/image", {
+          fetch("https://smart-brain-mainapp.herokuapp.com/image", {
             method: "put",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -135,15 +135,12 @@ class App extends Component {
               onInputChange={this.onInputChange}
               onButtonSubmit={this.onButtonSubmit}
             />
-            <ImageRecognition box={box} imageUrl={imageUrl} />
+            <FaceRecognition box={box} imageUrl={imageUrl} />
           </div>
         ) : route === "signin" ? (
-          <SigninForm
-            loadUser={this.loadUser}
-            onRouteChange={this.onRouteChange}
-          />
+          <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
         ) : (
-          <SignupForm
+          <Register
             loadUser={this.loadUser}
             onRouteChange={this.onRouteChange}
           />

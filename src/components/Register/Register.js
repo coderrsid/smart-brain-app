@@ -1,6 +1,6 @@
 import React from "react";
 
-class SignupForm extends React.Component {
+class Register extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,7 +23,7 @@ class SignupForm extends React.Component {
   };
 
   onSubmitSignIn = () => {
-    fetch("https://blooming-coast-99463.herokuapp.com/register", {
+    fetch("https://smart-brain-mainapp.herokuapp.com/register", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -100,4 +100,4 @@ class SignupForm extends React.Component {
   }
 }
 
-export default SignupForm;
+export default Register;
