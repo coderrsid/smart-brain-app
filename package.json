@@ -8,7 +8,7 @@
     "react-dom": "^16.4.1",
     "react-particles-js": "^2.2.0",
     "react-reveal-text": "^0.1.1",
-    "react-scripts": "1.1.4",
+    "react-scripts": "5.0.1",
     "react-tilt": "^0.1.4",
     "react-validation": "^3.0.7",
     "sweetalert": "^2.1.0",
